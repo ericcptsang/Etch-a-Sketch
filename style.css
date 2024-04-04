@@ -1,8 +1,25 @@
-.row{
+.wrapper{
     display: flex;
+    justify-content: center;
 }
 
 #container{
+    max-width: 600px;
+    max-height: 600px;
+    min-width: 600px;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.row{
+    display: flex;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+.box{
+    border: 1px solid black;
+    flex-grow: 1;
 }

@@ -1,23 +1,25 @@
 const container = document.querySelector("#container");
-
+const button = document.createElement("button");
 let row;
 let box;
 
-function createGrid(rows, columns){
-    for(let i = 0; i < rows; i++){
+function createGrid(size){
+    
+    for(let i = 0; i < size; i++){
         row = document.createElement("row");
-        row.textContent = i;
         row.classList.add("row")
-        container.appendChild(row);
-
-        for(let j = 1; j < columns; j++) {
+        for(let j = 0; j < size; j++) {
             box = document.createElement("column");
             box.classList.add("box")
-            box.textContent = j;
+            box.addEventListener('mouseover', function() {
+                this.style.backgroundColor = '#000000';
+            })
             row.appendChild(box);
         }
+        container.appendChild(row);
     }
 }
 
-createGrid(16, 16);
+
+createGrid(16);
 
