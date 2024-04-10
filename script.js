@@ -1,9 +1,11 @@
 const container = document.querySelector("#container");
-const button = document.createElement("button");
+const clearButton = document.querySelector("#clearButton");
+const sizeButton = document.querySelector("#sizeButton");
 let row;
 let box;
+let size = 16;
 
-function createGrid(size){
+function createGrid(size) {
     
     for(let i = 0; i < size; i++){
         row = document.createElement("row");
@@ -18,8 +20,28 @@ function createGrid(size){
         }
         container.appendChild(row);
     }
+    
 }
 
+function clear(){
+    let getBoxes = document.querySelectorAll(".box");
+    for(let i = 0; i < getBoxes.length; i++){
+        getBoxes[i].style.backgroundColor = '#FFFFFF';
+    }
+}
 
-createGrid(16);
+clearButton.addEventListener("click", clear)
+
+sizeButton.addEventListener("click", () => {
+    let input = Number(prompt("Input square size (1-100)"))
+    while(input < 1 || input >100) {
+        input = Number(prompt("Please input 1-100!"))
+    }
+    size = input;
+    container.innerHTML = '';
+    createGrid(size);
+})
+
+
+createGrid(size);
 
